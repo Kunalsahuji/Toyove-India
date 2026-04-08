@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { categoryTree, mainNavigation } from '../../data/navigation'
+import { BrandLogo } from '../ui/BrandLogo'
 import { Icon } from '../ui/Icon'
 
 export function Navbar({ onOpenMenu }) {
@@ -26,9 +27,7 @@ export function Navbar({ onOpenMenu }) {
             <button className="grid h-9 w-9 place-items-center rounded-full text-ink" type="button" onClick={onOpenMenu} aria-label="Open menu">
               <Icon name="menu" className="h-5 w-5" />
             </button>
-            <a href="#home" className="shrink-0 font-[var(--font-display)] text-[32px] leading-none text-orange">
-              Easty
-            </a>
+            <BrandLogo size="sm" className="shrink-0" />
             <div className="relative min-w-0 flex-1">
               <input className="h-10 w-full rounded-full border-2 border-[#8a8a8a] bg-[#fffaf5] pl-4 pr-12 text-[14px] text-ink outline-none placeholder:text-[#7a7a7a]" placeholder="Search" type="search" />
               <button className="absolute right-[2px] top-[2px] grid h-9 w-9 place-items-center rounded-full bg-orange text-white" type="button" aria-label="Search">
@@ -47,9 +46,7 @@ export function Navbar({ onOpenMenu }) {
           </div>
 
           <div className="hidden items-center gap-4 md:flex">
-            <a href="#home" className="shrink-0 font-[var(--font-display)] text-[34px] leading-none text-orange lg:text-[46px]">
-              Easty
-            </a>
+            <BrandLogo size="lg" className="shrink-0" />
 
             <button
               className="items-center gap-2 text-[16px] font-semibold text-[#2d2d2d] md:flex"

@@ -1,3 +1,5 @@
+import { brand } from './brand'
+
 const px = (id, width = 1200, height = 1200) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${width}&h=${height}&fit=crop`
 
@@ -410,7 +412,7 @@ const generatedFeatured = [
     palette: ['#8aa8dc', '#f5c9d2', '#a4d7be'],
     seller: 'UX Hatch',
     stockNote: 'Popular pick',
-    summary: 'Composable sections inspired by modern Etsy-style browsing.',
+    summary: 'Composable sections inspired by modern marketplace browsing.',
   },
   {
     name: 'Warm Playroom Layout Theme',
@@ -503,7 +505,7 @@ const generatedExplore = [
     palette: ['#cf8ca3', '#f2c2cd', '#d1dbab'],
     seller: 'Bloom Studio',
     stockNote: 'Featured listing',
-    summary: 'Supports Etsy-like discovery strip layout with bold visuals.',
+    summary: 'Supports modern marketplace discovery strip layout with bold visuals.',
   },
 ].map((item, index) =>
   createProduct({
@@ -692,9 +694,4 @@ export function getProductById(id) {
   return allProducts.find((item) => item.id === Number(id))
 }
 
-export const footerColumns = [
-  { title: 'Shop', links: ['Gift cards', 'Etsy Registry', 'Sitemap', 'Etsy blog', 'Etsy United Kingdom', 'Etsy Germany', 'Etsy Canada'] },
-  { title: 'Sell', links: ['Sell on Etsy', 'Teams', 'Forums', 'Affiliates & Creators'] },
-  { title: 'About', links: ['Etsy, Inc.', 'Policies', 'Investors', 'Careers', 'Press', 'Impact', 'Legal imprint'] },
-  { title: 'Help', links: ['Help Centre', 'Privacy settings'] },
-]
+export const footerColumns = brand.footerColumns

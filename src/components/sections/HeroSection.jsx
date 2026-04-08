@@ -17,10 +17,27 @@ export function HeroSection() {
           </div>
         </article>
 
-        <div className="mx-auto hidden max-w-[1328px] gap-5 md:grid md:grid-cols-[1fr_400px] md:gap-[30px]">
-          <article className="overflow-hidden rounded-[14px] bg-[#d7e3f4] shadow-[inset_0_0_0_1px_rgba(34,34,34,0.06)] md:h-[272px] md:grid md:grid-cols-[1.55fr_1fr]">
-            <div className="flex h-full flex-col items-center justify-center px-6 py-7 md:px-12 md:py-0">
-              <h1 className="max-w-[380px] whitespace-pre-line text-center font-[var(--font-display)] text-[34px] leading-[0.98] text-[#2f2a3b] md:text-[62px] md:leading-[0.92]">
+        <article className="hero-tablet-only mx-auto max-w-[1328px] overflow-hidden rounded-[14px] bg-[#d7e3f4] shadow-[inset_0_0_0_1px_rgba(34,34,34,0.06)]">
+          <div className="grid h-[248px] grid-cols-[minmax(0,7fr)_minmax(0,3fr)]">
+            <div className="flex h-full flex-col items-center justify-center px-6 py-8 text-center sm:px-8 md:px-10">
+              <h1 className="max-w-[340px] whitespace-pre-line font-[var(--font-display)] text-[clamp(40px,4.2vw,50px)] leading-[0.9] text-[#2f2a3b]">
+                {heroTitle}
+              </h1>
+              <button className="mt-5 inline-flex rounded-full bg-[#2f2a35] px-7 py-3 text-[15px] font-semibold text-white" type="button">
+                {heroBanner.cta}
+              </button>
+            </div>
+
+            <div className="overflow-hidden rounded-r-[14px]">
+              <img className="h-full w-full object-cover object-center" src={heroBanner.imageUrl} alt={heroBanner.title} loading="eager" />
+            </div>
+          </div>
+        </article>
+
+        <div className="hero-desktop-only mx-auto max-w-[1328px] gap-5 grid-cols-[1fr_400px] lg:gap-[30px]">
+          <article className="overflow-hidden rounded-[14px] bg-[#d7e3f4] shadow-[inset_0_0_0_1px_rgba(34,34,34,0.06)] lg:h-[272px] lg:grid lg:grid-cols-[1.55fr_1fr]">
+            <div className="flex h-full flex-col items-center justify-center px-6 py-7 lg:px-12 lg:py-0">
+              <h1 className="max-w-[380px] whitespace-pre-line text-center font-[var(--font-display)] text-[34px] leading-[0.98] text-[#2f2a3b] lg:text-[62px] lg:leading-[0.92]">
                 {heroTitle}
               </h1>
               <button className="mt-6 inline-flex rounded-full bg-[#2f2a35] px-7 py-3 text-[15px] font-semibold text-white" type="button">

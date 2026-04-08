@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { brand } from '../../data/brand'
 import { detailRecommendations } from '../../data/storefront'
 import { ProductCarousel } from '../../components/ui/ProductCarousel'
 import { ProductVisual } from '../../components/ui/ProductVisual'
@@ -12,7 +13,7 @@ export function ProductDetailPage({ product, onSelectProduct }) {
       <section className="section-pad pb-4 pt-3">
         <div className="container-shell">
           <div className="mb-6 text-sm text-muted">
-            Easty <span className="mx-1">›</span> Toys & baby <span className="mx-1">›</span> {product.name}
+            {brand.name} <span className="mx-1">›</span> Toys & baby <span className="mx-1">›</span> {product.name}
           </div>
 
           <div className="grid gap-8 lg:grid-cols-[88px_1.15fr_0.85fr]">
@@ -130,7 +131,7 @@ export function ProductDetailPage({ product, onSelectProduct }) {
               </div>
             </div>
             <p className="mt-4 text-sm leading-7 text-muted">
-              This layout is inspired by Etsy-style digital product pages, so we populated this detail view with realistic information and a responsive product gallery for your children marketplace experience.
+              This layout is inspired by Toyove India digital product pages, so we populated this detail view with realistic information and a responsive product gallery for your children marketplace experience.
             </p>
           </div>
 

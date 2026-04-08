@@ -119,6 +119,33 @@ img {
   display: none;
 }
 
+.hero-tablet-only,
+.hero-desktop-only,
+.footer-tablet-only,
+.footer-desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .hero-tablet-only {
+    display: block;
+  }
+
+  .footer-tablet-only {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-desktop-only {
+    display: grid;
+  }
+
+  .footer-desktop-only {
+    display: flex;
+  }
+}
+
 .skeleton {
   position: relative;
   overflow: hidden;
