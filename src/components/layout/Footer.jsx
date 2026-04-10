@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { BrandLogo } from '../ui/BrandLogo'
 import { Icon } from '../ui/Icon'
 
 export function Footer() {
@@ -33,24 +32,26 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-footer-bg text-white mt-12 pb-10">
+    <footer className="bg-footer-bg text-white pb-10">
       <div className="container-shell pt-10">
         
-        {/* 1. Renewable Notice (Screenshot 1 Exact) */}
+        {/* 1. Renewable Notice (Dotted Line match per Screenshot) */}
         <div className="flex flex-col items-center justify-center text-center px-4 mb-10">
-          <Icon name="region" className="h-10 w-10 mb-3 opacity-80" />
-          <a href="#" className="text-[14px] font-medium border-b border-white/20 pb-0.5 hover:border-white transition-colors">
-            Toyove India is powered by 100% renewable electricity.
-          </a>
+          <Icon name="region" className="h-10 w-10 mb-3 opacity-90" />
+          <div className="inline-block border-b border-dotted border-white/60 pb-1">
+            <a href="#" className="text-[14px] font-medium hover:text-white transition-colors">
+              Toyove is powered by 100% renewable electricity.
+            </a>
+          </div>
         </div>
 
-        {/* 2. Mobile Accordions (Desktop: 4 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 md:gap-8 border-t border-white/10 md:border-none">
+        {/* 2. Mobile Accordions (Clean - No Borders - Glassmorphism Hover) */}
+        <div className="flex flex-col gap-1 md:grid md:grid-cols-4 md:gap-8">
           {footerSections.map((section) => (
-            <div key={section.id} className="border-b border-white/10 md:border-none">
+            <div key={section.id} className="relative">
               <button 
                 onClick={() => toggleSection(section.id)}
-                className="w-full py-5 px-4 flex items-center justify-between text-[16px] font-bold md:cursor-default md:pointer-events-none md:p-0 md:mb-5"
+                className="group w-full py-4 px-4 flex items-center justify-between text-[16px] font-bold rounded-xl transition-all hover:bg-white/5 active:bg-white/10 md:cursor-default md:pointer-events-none md:p-0 md:bg-transparent md:mb-5"
               >
                 <span>{section.title}</span>
                 <Icon 
@@ -59,10 +60,12 @@ export function Footer() {
                 />
               </button>
               
-              <ul className={`overflow-hidden transition-all duration-300 ${openSection === section.id ? 'max-h-[400px] pb-6 px-4' : 'max-h-0 md:max-h-none'} md:space-y-3`}>
+              <ul className={`overflow-hidden transition-all duration-300 ${openSection === section.id ? 'max-h-[400px] py-2 px-6' : 'max-h-0 md:max-h-none'} md:space-y-3`}>
                 {section.links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-[14px] text-white/70 hover:text-white block py-2 md:py-0">{link}</a>
+                    <a href="#" className="text-[14px] text-white/70 hover:text-white hover:underline block py-2 md:py-0 transition-colors">
+                      {link}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -70,18 +73,25 @@ export function Footer() {
           ))}
         </div>
 
-        {/* 3. Social & App Block (Screenshot 1 Exact) */}
-        <div className="mt-12 flex flex-col items-center gap-8 pt-8 border-t border-white/10">
-          <div className="flex items-center gap-8">
-            <Icon name="instagram" className="h-6 w-6 opacity-80" />
-            <Icon name="facebook" className="h-6 w-6 opacity-80" />
-            <Icon name="pinterest" className="h-6 w-6 opacity-80" />
-            <Icon name="youtube" className="h-6 w-6 opacity-80" />
+        {/* 3. Social & App Block (Glassmorphism Icon Hover) */}
+        <div className="mt-12 flex flex-col items-center gap-8 pt-8">
+          <div className="flex items-center gap-3">
+            {['instagram', 'facebook', 'pinterest', 'youtube'].map((social) => (
+              <a key={social} href="#" className="h-12 w-12 grid place-items-center rounded-full transition-all hover:bg-white/10 active:bg-white/20">
+                <Icon name={social} className="h-6 w-6 opacity-90" />
+              </a>
+            ))}
           </div>
 
           <div className="flex flex-col items-center gap-4">
-             <BrandLogo size="nav" showSuffix={false} className="grayscale invert opacity-80" />
-             <button className="h-10 px-6 rounded-full bg-[#463a5a] text-[14px] font-bold text-white hover:bg-white/10 transition">
+             {/* Exact Brand Logo Match (Orange match per Screenshot) */}
+             <div className="flex items-center gap-2 mb-2">
+                <div className="bg-orange p-3 rounded-lg shadow-lg">
+                   <span className="text-white font-serif-display font-bold text-[18px]">Toyove</span>
+                </div>
+             </div>
+             
+             <button className="h-11 px-8 rounded-full bg-white/10 border border-white/20 text-[14px] font-bold text-white hover:bg-white/20 transition-all active:scale-95 shadow-lg backdrop-blur-sm">
                 Download the Toyove App
              </button>
           </div>
@@ -89,17 +99,16 @@ export function Footer() {
 
         {/* 4. Bottom Legal Strip */}
         <div className="mt-12 text-center text-[12px] font-medium text-white/60 px-4 space-y-4">
-          <div className="flex items-center justify-center gap-2 text-white">
+          <div className="flex items-center justify-center gap-2 text-white/90">
              <Icon name="region" className="h-4 w-4" />
-             <span>India | English (IN) | ₹ (INR)</span>
+             <span className="border-b border-dotted border-white/40 pb-0.5">India | English (IN) | ₹ (INR)</span>
           </div>
           <p>© 2026 Toyove India, Inc.</p>
-          <div className="flex flex-wrap items-center justify-center gap-4 opacity-80">
-            <a href="#">Terms of Use</a>
-            <a href="#">Privacy</a>
-            <a href="#">Interest-based ads</a>
-            <a href="#">Local Shops</a>
-            <a href="#">Regions</a>
+          <div className="flex flex-wrap items-center justify-center gap-4 opacity-70">
+            <a href="#" className="hover:underline">Terms of Use</a>
+            <a href="#" className="hover:underline">Privacy</a>
+            <a href="#" className="hover:underline">Interest-based ads</a>
+            <a href="#" className="hover:underline">Regions</a>
           </div>
         </div>
       </div>
